@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeIt — Soporte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cyan: rgb(33, 254, 240);
+            --purple: rgb(207, 112, 234);
+            --bg: #000;
+            --card: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text: #fff;
+            --text-secondary: rgba(255, 255, 255, 0.5);
+        }
+
+        body {
+            font-family: 'Oxanium', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background: white;
+            animation: pulse var(--duration) ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: var(--max-opacity); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 80px 24px 60px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .app-name {
+            font-size: 42px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .app-name span {
+            color: var(--cyan);
+        }
+
+        .header-sub {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--cyan);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .card p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .card p + p {
+            margin-top: 16px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 40px 28px;
+        }
+
+        .contact-label {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--cyan);
+            text-decoration: none;
+            padding: 12px 32px;
+            border: 1.5px solid var(--cyan);
+            border-radius: 999px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .contact-email:hover {
+            background: rgba(33, 254, 240, 0.08);
+        }
+
+        .response-note {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 16px;
+        }
+
+        .faq-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .faq-a {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .footer-slogan {
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+        }
+
+        .footer-slogan span {
+            color: var(--purple);
+        }
+
+        .footer-copy {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.25);
+            margin-top: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 48px 18px 40px; }
+            .app-name { font-size: 32px; }
+            .card { padding: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="container">
+        <div class="header">
+            <div class="app-name">Time<span>It</span></div>
+            <div class="header-sub">SOPORTE</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Contáctanos</div>
+            <div class="card contact-card">
+                <div class="contact-label">¿Tienes alguna pregunta, problema o sugerencia?</div>
+                <a href="mailto:helptimeitapp@outlook.com" class="contact-email">helptimeitapp@outlook.com</a>
+                <div class="response-note">Normalmente respondemos en menos de 24 horas.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Preguntas Frecuentes</div>
+            <div class="card">
+                <div class="faq-item">
+                    <div class="faq-q">¿Qué es TimeIt?</div>
+                    <div class="faq-a">TimeIt es un cronómetro basado en sesiones donde cada sesión que completas se suma a un total acumulado que nunca se reinicia. Registra cuánto tiempo has dedicado realmente a cualquier actividad — a lo largo de días, semanas, meses y años.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">¿Qué incluye el plan gratuito?</div>
+                    <div class="faq-a">Una actividad con hasta 30 sesiones. Sin límite de tiempo por sesión — cronometra todo lo que necesites, cada sesión.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">¿Qué incluye TimeIt Pro?</div>
+                    <div class="faq-a">Actividades y sesiones ilimitadas, doble cronómetro para rastrear dos actividades a la vez, y acceso en todos tus dispositivos con una sola suscripción.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">¿La app de Apple Watch funciona sin mi iPhone?</div>
+                    <div class="faq-a">Sí. TimeIt para Apple Watch es completamente independiente. Inicia, pausa y finaliza sesiones directamente desde tu muñeca. Todo se sincroniza automáticamente cuando tus dispositivos se reconectan.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">¿Cómo sincronizo mis datos entre dispositivos?</div>
+                    <div class="faq-a">Inicia sesión con tu cuenta de Apple en la pestaña de Planes. Tus actividades, sesiones y tiempo total se sincronizan automáticamente en iPhone, iPad, Mac y Apple Watch.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">¿Cómo cancelo o administro mi suscripción?</div>
+                    <div class="faq-a">Ve a Ajustes > Apple ID > Suscripciones en tu dispositivo. Puedes cambiar o cancelar tu suscripción en cualquier momento.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Me suscribí en mi iPhone. ¿Necesito suscribirme de nuevo en Apple Watch?</div>
+                    <div class="faq-a">No. Tu suscripción Pro cubre todos tus dispositivos. Suscríbete en iPhone, iPad o Mac y tu Apple Watch desbloquea Pro automáticamente.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-slogan">Cronometra lo que quieras. Cronométralo en sesiones. <span>Cronométralo para siempre.</span></div>
+            <div class="footer-copy">&copy; 2026 TimeIt. Todos los derechos reservados.</div>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('stars');
+        const count = 100;
+        for (let i = 0; i < count; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            const size = 1 + Math.random() * 2;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+            star.style.setProperty('--max-opacity', (0.3 + Math.random() * 0.7).toFixed(2));
+            star.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(star);
+        }
+    </script>
+</body>
+</html>
